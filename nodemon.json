@@ -1,0 +1,4 @@
+{
+  "exec": "ts-node --transpile-only",
+  "ext": "ts,js,json"
+}
