@@ -6,7 +6,6 @@ export default function Home({
 }: {
   isGorgiasChatEnabled: boolean;
 }) {
-  console.log("isGorgiasChatEnabled: ", isGorgiasChatEnabled);
   useGorgiasChat(isGorgiasChatEnabled);
   return (
     <div className="container">
