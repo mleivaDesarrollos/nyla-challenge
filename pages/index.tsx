@@ -1,6 +1,13 @@
-import Head from 'next/head';
+import Head from "next/head";
+import { useGorgiasChat } from "../hooks/gorgias/useGorgiasChat";
 
-export default function Home() {
+export default function Home({
+  isGorgiasChatEnabled,
+}: {
+  isGorgiasChatEnabled: boolean;
+}) {
+  console.log("isGorgiasChatEnabled: ", isGorgiasChatEnabled);
+  useGorgiasChat(isGorgiasChatEnabled);
   return (
     <div className="container">
       <Head>
@@ -13,13 +20,13 @@ export default function Home() {
         </h1>
 
         <p className="description">
-          We need you to integrate with a third-party live chat called{' '}
+          We need you to integrate with a third-party live chat called{" "}
           <a href="https://www.gorgias.com/" target="_blank">
             Gorgias
           </a>
           .
           <small>
-            (you can see it in action on their own website, bottom right corner){' '}
+            (you can see it in action on their own website, bottom right corner){" "}
           </small>
         </p>
 
@@ -59,12 +66,12 @@ export default function Home() {
             <ul>
               <li>
                 The Gorgias chat widget should appear in the bottom right corner
-                of the screen (you might need to use <em>Open in New Window</em>{' '}
+                of the screen (you might need to use <em>Open in New Window</em>{" "}
                 in StackBlitz due to CORS).
               </li>
               <li>It should be functional if a Visitor wants to use it.</li>
               <li>
-                It shouldn't load if the Merchant disabled it and{' '}
+                It shouldn't load if the Merchant disabled it and{" "}
                 <code>process.env.NEXT_PUBLIC_GORGIAS</code>
                 isn't true.
               </li>
@@ -198,7 +205,8 @@ export default function Home() {
           font-size: 1.5rem;
         }
 
-        .card p, .card li {
+        .card p,
+        .card li {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
@@ -227,4 +235,14 @@ export default function Home() {
       `}</style>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const isGorgiasChatEnabled = process.env.NEXT_PUBLIC_GORGIAS === "true";
+
+  return {
+    props: {
+      isGorgiasChatEnabled,
+    },
+  };
 }
