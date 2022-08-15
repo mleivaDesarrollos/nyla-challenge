@@ -14,6 +14,30 @@ and Nyla. Hopefully we could meet together soon to better know each other!!
 3. Run `npm run dev`
 4. Go to `http://localhost:3000`
 
+![Starting Screen](./starting-screen.png)
+
+![Chat Opened](./chat-opened.png)
+
+![Chat Disabled](./disabled-chat.png)
+
+## Add Ons
+
+### Merchant Dashboard (for disabling the chat)
+
+1. With the project running, go to `http://localhost:3000/admin/login`
+2. Put `username: admin`, `password: 12345` and log you in.
+3. Open a new tab on `http://localhost:3000`
+4. On the admin click make it sure `Chat enabled` is unmarked
+5. Press Save
+6. Go to the tab on you have opened the home page and refresh it
+7. After refreshing you shan't see the UI item to open chat
+
+(You might press save on dashboard one or two more times to get it work, because settings are saved in memory)
+
+![Dashboard Page](./dashboard-page.png)
+
+![Dashboard Login](./dashboard-login.png)
+
 ## Decisions
 
 In this section I gonna explain a little bit which tools I chose, design decisions 
