@@ -6,20 +6,29 @@ export const GorgiasChat = () => {
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | null;
+
     if (visitorWantsToChat) {
       interval = setInterval(() => {
-        const gorgiasIframe = document.querySelector(
+        const gorgiasIframeButton = document.querySelector(
           "#chat-button"
         ) as HTMLIFrameElement;
-        if (gorgiasIframe) {
+        const gorgiasIframeChatWindow = document.querySelector("#chat-window");
+
+        if (gorgiasIframeButton && gorgiasIframeChatWindow) {
           const gorgiasChatButton =
-            gorgiasIframe.contentWindow.document.body.querySelector(
+            gorgiasIframeButton.contentWindow.document.body.querySelector(
               "#gorgias-chat-messenger-button"
             ) as HTMLButtonElement;
+
           /* To avoid issue we should validate if the button was properly rendered before clicking it */
           if (gorgiasChatButton) {
             clearInterval(interval);
-            if (gorgiasChatButton.ariaLabel === "Open the chat") {
+            const chatWindowStyles = window.getComputedStyle(
+              gorgiasIframeChatWindow
+            );
+
+            /* We only would click on chat button when chat window is hidden */
+            if (chatWindowStyles.display === "none") {
               gorgiasChatButton.click();
             }
           }
