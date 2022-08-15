@@ -78,6 +78,9 @@ firebase, I decided to save this configuration on memory through Next.JS `api` f
 I created two endpoints, one for retrieving merchant information and other to update that
 information.
 
+- **ProductCard** is the only tailwind template used in the project. I didn't have
+enough time to create a custom component, decided to pick something already made.
+
 ## Problems and room for improvement
 
 - **Enable/disable chat for merchant**: Because this configuration is saved on memory, and
