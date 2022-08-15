@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGorgiasChat } from "../../hooks/gorgias/useGorgiasChat";
+import { useGorgiasChat } from "./useGorgiasChat";
 
 export const GorgiasChat = () => {
   const [visitorWantsToChat, setVisitorWantsToChat] = useState(false);
